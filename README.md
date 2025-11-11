@@ -255,4 +255,4 @@ print(response.json())
 
 ## License
 
-MIT License - Feel free to use this for your own portfolio!
+MIT License - Feel free to use this for your own portfolio.
