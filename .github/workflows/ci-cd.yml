@@ -24,7 +24,7 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
-        cache-dependency-path: frontend/package-lock.json
+        cache-dependency-path: 'frontend/package-lock.json'
 
     - name: Install dependencies
       working-directory: ./frontend
@@ -90,7 +90,7 @@ jobs:
       working-directory: ./portfolio-backend
       env:
         MONGODB_URI: mongodb://admin:password@localhost:27017/test?authSource=admin
-        SECRET_KEY: test-secret-key-for-ci-pipeline
+        SECRET_KEY: test-secret-key-for-ci-pipeline-12345678901234567890
         FLASK_ENV: testing
         MAIL_SERVER: smtp.gmail.com
         MAIL_PORT: 587
@@ -101,6 +101,8 @@ jobs:
         ADMIN_EMAIL: test@example.com
         SETUP_KEY: test-setup-key
         FRONTEND_URL: http://localhost:3000
+        MONGO_USERNAME: admin
+        MONGO_PASSWORD: password
       run: |
         python test_api.py
 
@@ -108,6 +110,10 @@ jobs:
   security-scan:
     name: Security Scan
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
 
     steps:
     - uses: actions/checkout@v3
@@ -121,8 +127,9 @@ jobs:
         output: 'trivy-results.sarif'
 
     - name: Upload Trivy results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@v2
+      uses: github/codeql-action/upload-sarif@v3
       if: always()
+      continue-on-error: true
       with:
         sarif_file: 'trivy-results.sarif'
 
