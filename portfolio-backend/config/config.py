@@ -23,3 +23,6 @@ class Config:
 
     # CORS
     FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:3000')
+
+    # Admin Setup Key (REQUIRED for auth/setup endpoint)
+    SETUP_KEY = os.getenv('SETUP_KEY')
