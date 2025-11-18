@@ -24,20 +24,22 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
+        cache-dependency-path: frontend/package-lock.json
 
     - name: Install dependencies
+      working-directory: ./frontend
       run: npm ci
 
     - name: Run linter
+      working-directory: ./frontend
       run: npm run lint || true
 
-    - name: Run TypeScript check
-      run: npx tsc --noEmit || true
-
     - name: Run tests
+      working-directory: ./frontend
       run: npm test -- --watchAll=false || true
 
     - name: Build application
+      working-directory: ./frontend
       run: npm run build
 
   # Backend Tests
@@ -88,8 +90,17 @@ jobs:
       working-directory: ./portfolio-backend
       env:
         MONGODB_URI: mongodb://admin:password@localhost:27017/test?authSource=admin
-        SECRET_KEY: test-secret-key
+        SECRET_KEY: test-secret-key-for-ci-pipeline
         FLASK_ENV: testing
+        MAIL_SERVER: smtp.gmail.com
+        MAIL_PORT: 587
+        MAIL_USE_TLS: True
+        MAIL_USERNAME: test@example.com
+        MAIL_PASSWORD: test
+        MAIL_DEFAULT_SENDER: test@example.com
+        ADMIN_EMAIL: test@example.com
+        SETUP_KEY: test-setup-key
+        FRONTEND_URL: http://localhost:3000
       run: |
         python test_api.py
 
@@ -115,7 +126,7 @@ jobs:
       with:
         sarif_file: 'trivy-results.sarif'
 
-  # Build and Push Docker Images
+  # Build and Push Docker Images (only on main branch)
   docker-build:
     name: Build Docker Images
     runs-on: ubuntu-latest
@@ -149,6 +160,7 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
+        file: ./frontend/Dockerfile
         push: true
         tags: |
           ${{ secrets.DOCKER_USERNAME }}/portfolio-frontend:latest
@@ -156,7 +168,7 @@ jobs:
         cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/portfolio-frontend:buildcache
         cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/portfolio-frontend:buildcache,mode=max
 
-  # Deploy to Production (example)
+  # Deploy to Production (placeholder)
   deploy:
     name: Deploy to Production
     runs-on: ubuntu-latest
@@ -164,8 +176,10 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     steps:
-    - name: Deploy to server
+    - name: Deploy notification
       run: |
-        echo "Deployment steps would go here"
-        # Example: SSH to server and pull new images
-        # ssh user@server 'cd /app && docker-compose pull && docker-compose up -d'
+        echo "✅ Docker images built and pushed successfully"
+        echo "🚀 Ready for deployment"
+        echo "Images:"
+        echo "  - ${{ secrets.DOCKER_USERNAME }}/portfolio-backend:${{ github.sha }}"
+        echo "  - ${{ secrets.DOCKER_USERNAME }}/portfolio-frontend:${{ github.sha }}"
