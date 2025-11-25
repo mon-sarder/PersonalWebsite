@@ -148,10 +148,10 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-gray-500">Email</p>
                     <a
-                      href="mailto:your.email@example.com"
+                      href="mssarder.cpp.edu@gmail.com"
                       className="text-gray-700 hover:text-blue-600 transition-colors"
                     >
-                      your.email@example.com
+                      mssarder.cpp.edu@gmail.com
                     </a>
                   </div>
                 </div>
@@ -161,12 +161,12 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-gray-500">LinkedIn</p>
                     <a
-                      href="https://linkedin.com/in/yourusername"
+                      href="https://linkedin.com/in/mon-sarder-946518392"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-700 hover:text-blue-600 transition-colors"
                     >
-                      linkedin.com/in/yourusername
+                      linkedin.com/in/mon-sarder-946518392
                     </a>
                   </div>
                 </div>
@@ -176,12 +176,12 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-gray-500">GitHub</p>
                     <a
-                      href="https://github.com/yourusername"
+                      href="https://github.com/mon-sarder"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-700 hover:text-blue-600 transition-colors"
                     >
-                      github.com/yourusername
+                      github.com/mon-sarder
                     </a>
                   </div>
                 </div>
