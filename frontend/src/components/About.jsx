@@ -35,7 +35,7 @@ const About = () => {
               <p className="text-gray-700">
                 <strong>Bachelor's in Computer Science</strong><br />
                 University Name<br />
-                2020 - 2024
+                2023 - 2027
               </p>
             </div>
 
