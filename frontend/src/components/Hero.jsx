@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 text-center">
         <div className="fade-in">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-            Hi, I'm <span className="text-blue-600">Your Name</span>
+            Hi, I'm <span className="text-blue-600">Mon Sarder</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8">
             Software Engineer | Full Stack Developer
@@ -46,7 +46,7 @@ const Hero = () => {
           {/* Social Links */}
           <div className="flex justify-center space-x-6">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/mon-sarder"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600 transition-colors"
@@ -54,7 +54,7 @@ const Hero = () => {
               <FaGithub size={28} />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/mon-sarder-946518392/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600 transition-colors"
@@ -62,7 +62,7 @@ const Hero = () => {
               <FaLinkedin size={28} />
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:mssarder.cpp.edu@gmail.com"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
               <FaEnvelope size={28} />

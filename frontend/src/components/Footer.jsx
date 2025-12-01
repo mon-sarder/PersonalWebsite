@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="mb-4 md:mb-0">
             <p className="text-gray-400 flex items-center gap-2">
-              © {currentYear} Your Name. Made with{' '}
+              © {currentYear} Mon. Made with{' '}
               <FaHeart className="text-red-500" /> using React & Flask
             </p>
           </div>
@@ -19,7 +19,7 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex space-x-6">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/mon-sarder"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
@@ -27,7 +27,7 @@ const Footer = () => {
               <FaGithub size={24} />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/mon-sarder-946518392/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
@@ -35,7 +35,7 @@ const Footer = () => {
               <FaLinkedin size={24} />
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:mssarder.cpp.edu@gmail.com"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <FaEnvelope size={24} />

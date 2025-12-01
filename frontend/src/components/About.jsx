@@ -22,9 +22,8 @@ const About = () => {
             </p>
 
             <p>
-              When I'm not coding, you can find me exploring new technologies, contributing
-              to open-source projects, or sharing my knowledge with the developer community.
-              I believe in continuous learning and staying updated with the latest industry trends.
+              When I'm not coding, you can find me exploring cooking, playing sports, watching
+              Formula 1, and playing Valorant.
             </p>
           </div>
 
